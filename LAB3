@@ -1,0 +1,53 @@
+#include <iostream>
+
+int main()
+{
+    // --- 1. การประกาศตัวแปร ---
+    char op;        // เก็บตัวอักษรเครื่องหมายคณิตศาสตร์
+    double num1;    // ใช้ double เพื่อเก็บตัวเลขทศนิยมที่มีความละเอียดสูง (64-bit)
+    double num2;
+    double result;  // ตัวแปรสำหรับเก็บผลลัพธ์สุดท้าย
+
+    // --- 2. ส่วนแสดงผลหน้าจอ (UI) และรับค่า ---
+    std::cout << "*********** CALCULATOR ***********\n"; // พิมพ์หัวข้อโปรแกรม
+    std::cout << "Enter either (+, -, *, /): ";
+    std::cin >> op;
+
+    std::cout << "Enter #1: ";
+    std::cin >> num1;
+
+    std::cout << "Enter #2: ";
+    std::cin >> num2;
+
+    // --- 3. การตรวจสอบเงื่อนไขด้วย Switch Case ---
+    switch(op){
+        case '+':
+            result = num1 + num2;
+            std::cout << "Result: " << result << std::endl;
+            break; // หยุดการทำงานใน switch เมื่อทำ case นี้เสร็จ
+
+        case '-':
+            result = num1 - num2;
+            std::cout << "Result: " << result << std::endl;
+            break;
+
+        case '*':
+            result = num1 * num2;
+            std::cout << "Result: " << result << std::endl;
+            break;
+
+        case '/':
+            // ข้อควรระวัง: โค้ดนี้ยังไม่ได้เช็คกรณี num2 เป็น 0 ซึ่งจะทำให้ผลลัพธ์เป็น inf (infinity)
+            result = num1 / num2;
+            std::cout << "Result: " << result << std::endl;
+            break;
+
+        default:
+            // ทำงานเมื่อ user กรอกเครื่องหมายที่นอกเหนือจาก +, -, *, /
+            std::cout << "That wasn't a valid operator";
+            break;
+    }
+
+    std::cout << "**********************\n";
+    return 0;
+}

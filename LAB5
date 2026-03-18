@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    // --- 1. เตรียมตัวแปร ---
+    char op;            // เก็บเครื่องหมาย (Operator)
+    double num1, num2;  // เก็บตัวเลขทศนิยมความละเอียดสูง 2 จำนวน
+
+    // --- 2. รับข้อมูลจากผู้ใช้ ---
+    cout << "Enter an operator (+, -, *, /): ";
+    cin >> op;
+
+    cout << "Enter two numbers one by one: ";
+    cin >> num1 >> num2; // รับค่าตัวเลข 2 ค่าต่อเนื่องกัน (ใช้ช่องว่างหรือ Enter คั่นได้)
+
+    // --- 3. ประมวลผลตามเครื่องหมายที่เลือก ---
+    switch ( op ){
+        case '+':
+            cout << num1 << " + " << num2 << " = " << (num1 + num2);
+            break;
+        case '-':
+            cout << num1 << " - " << num2 << " = " << (num1 - num2);
+            break;  
+        case '*':
+            cout << num1 << " * " << num2 << " = " << (num1 * num2);
+            break;  
+        case '/':
+            // --- ส่วนที่ปรับปรุง: การตรวจสอบการหารด้วยศูนย์ ---
+            if ( num2 != 0.0 ) // ถ้าตัวหารไม่เท่ากับ 0 ให้คำนวณปกติ
+                cout << num1 << " / " << num2 << " = " << (num1 / num2);
+            else // ถ้าตัวหารเป็น 0 ให้แจ้งเตือนแทนการสั่งคำนวณ (เพื่อไม่ให้โปรแกรมค้างหรือ Error)
+                cout << "Divide by zero situation!";
+            break;
+
+        default:
+            // กรณีผู้ใช้กรอกเครื่องหมายอื่นๆ ที่โปรแกรมไม่รองรับ
+            cout << op << " is not a valid operator!";
+            
+    }
+    return 0;
+}

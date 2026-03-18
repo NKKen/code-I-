@@ -1,0 +1,38 @@
+#include <iostream> // ดึง Library สำหรับจัดการ Input และ Output มาใช้งาน
+using namespace std;
+
+int main()
+{
+    // --- 1. การประกาศตัวแปร (Variable Declaration) ---
+    int num1 , num2; // ตัวแปรสำหรับเก็บตัวเลขจำนวนเต็ม 2 ค่าที่รับมาจาก user
+    int sum , diff , mult , modulus; // ตัวแปรสำหรับเก็บผลลัพธ์จากการคำนวณทางคณิตศาสตร์
+
+    // --- 2. การรับค่าจากผู้ใช้ (Input) ---
+    cout << "please enter the first number\n";
+    cin >> num1; // รับค่าตัวเลขแรก
+    cout <<"please enter the second number\n"; 
+    cin >> num2; // รับค่าตัวเลขที่สอง
+
+    // --- 3. การคำนวณและแสดงผล (Calculation & Output) ---
+    
+    // การบวก
+    sum = num1 + num2;
+    cout <<"sum =" << sum << endl;
+
+    // การลบ (มีการใช้ Logic เพื่อหาค่าสัมบูรณ์/ค่าบวกเสมอ)
+    diff = num1 - num2;
+    if (diff < 0 ) // ถ้าผลลบติดลบ
+        cout << "diff =" << -diff << endl; // ให้ใส่เครื่องหมายลบซ้อนไปเพื่อให้กลายเป็นค่าบวก
+    else 
+        cout << "diff =" << diff << endl; // ถ้าเป็นบวกอยู่แล้วก็แสดงผลปกติ
+      
+    // การคูณ
+    mult = num1 * num2;
+    cout << "mult =" << mult <<endl;
+
+    // การหารเอาเศษ (Modulus)
+    modulus = num1 % num2; 
+    cout << "modulus =" << modulus <<endl;
+
+    return 0; // จบการทำงานของโปรแกรม
+}

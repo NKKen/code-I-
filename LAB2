@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+  char op; // ตัวแปรชนิดตัวอักษร เพื่อเก็บเครื่องหมาย (+, -, *, /)
+  float num1, num2; // ใช้ float เพื่อให้รองรับทศนิยมในการคำนวณ
+
+  // --- รับค่าเครื่องหมาย ---
+  cout << "Enter operator: +, -, *, /: ";
+  cin >> op;
+
+  // --- รับตัวเลขสองจำนวน ---
+  cout << "Enter two operands: ";
+  cin >> num1 >> num2;
+
+  // --- การตัดสินใจด้วย switch-case ---
+  // switch จะตรวจสอบค่าในตัวแปร op ว่าตรงกับ 'case' ไหน
+  switch(op) {
+
+    case '+': // ถ้าผู้ใช้กรอก +
+      cout << num1 << " + " << num2 << " = " << num1 + num2;
+      break; // สำคัญมาก! เพื่อกระโดดออกจาก switch เมื่อทำงานใน case นี้เสร็จ
+
+    case '-': // ถ้าผู้ใช้กรอก -
+      cout << num1 << " - " << num2 << " = " << num1 - num2;
+      break;
+
+    case '*': // ถ้าผู้ใช้กรอก *
+      cout << num1 << " * " << num2 << " = " << num1 * num2;
+      break;
+
+    case '/': // ถ้าผู้ใช้กรอก /
+      cout << num1 << " / " << num2 << " = " << num1 / num2;
+      break;
+
+    default: 
+      // default จะทำงานก็ต่อเมื่อค่าใน op ไม่ตรงกับ case ใดๆ ข้างบนเลย (เช่น ผู้ใช้กรอกตัว A หรือ @)
+      cout << "Error! operator is not correct";
+      break;
+  }
+
+  return 0;
+}

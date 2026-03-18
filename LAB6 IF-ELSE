@@ -1,0 +1,40 @@
+#include <bits/stdc++.h> // Library ครอบจักรวาลของ C++ (รวม iostream, cfloat และอื่นๆ ไว้ในที่เดียว)
+using namespace std;
+
+int main() {
+    char op;
+    double a, b, res;
+
+    cout << "Enter an operator (+, -, *, /): ";
+    cin >> op;
+
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+
+    // --- 1. การใช้ If-Else If เพื่อเลือกเงื่อนไข ---
+    if (op == '+')
+        res = a + b;
+    else if (op == '-')
+        res = a - b;
+    else if (op == '*')
+        res = a * b;
+    else if (op == '/')
+        res = a / b;
+    else {
+        // --- 2. การจัดการกรณีเกิดข้อผิดพลาด ---
+        cout << "Error! Operator is not correct";
+        
+        /* กำหนดให้ res มีค่าเท่ากับ -DBL_MAX 
+           (คือค่าติดลบที่น้อยที่สุดที่ double จะเก็บได้) 
+           เพื่อใช้เป็น "Flag" หรือสัญลักษณ์ว่าเกิด Error ขึ้น
+        */
+        res = -DBL_MAX; 
+    }
+
+    // --- 3. การเช็คก่อนแสดงผล ---
+    // ถ้า res ไม่ใช่ค่า Flag ที่เราตั้งไว้ (แปลว่าคำนวณสำเร็จ) ให้แสดงผลลัพธ์
+    if (res != -DBL_MAX)
+        cout << "Result: " << res;
+
+    return 0;
+    

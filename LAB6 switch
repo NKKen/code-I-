@@ -1,0 +1,44 @@
+#include <bits/stdc++.h> // ดึง Library ทั้งหมดมาใช้งาน (รวมถึง cfloat ที่มีค่า DBL_MAX)
+using namespace std;
+
+int main() {
+    char op;
+    double a, b, res;
+
+    // --- 1. รับค่าจากผู้ใช้ ---
+    cout << "Enter an operator (+, -, *, /): ";
+    cin >> op;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+
+    // --- 2. การตัดสินใจด้วย switch-case ---
+    // ใช้ตรวจสอบตัวแปร 'op' ว่าตรงกับเครื่องหมายใด
+    switch (op) {
+    case '+':
+        res = a + b;
+        break; // ออกจาก switch เมื่อทำงานเสร็จ
+    case '-':
+        res = a - b;
+        break;
+    case '*':
+        res = a * b;
+        break;
+    case '/':
+        res = a / b;
+        break;
+    default:
+        // ถ้าไม่ตรงกับเครื่องหมายข้างต้น ให้แสดงข้อความแจ้งเตือน
+        cout << "Error! Operator is not correct";
+        
+        /* กำหนดค่า res ให้เป็นค่าต่ำสุดที่ double เก็บได้ (-DBL_MAX)
+           เพื่อใช้เป็น "ตัวสัญลักษณ์" บอกว่าการคำนวณไม่สำเร็จ */
+        res = -DBL_MAX;
+    }
+
+    // --- 3. ตรวจสอบก่อนแสดงผลลัพธ์ ---
+    // ถ้า res ไม่ใช่ค่า Flag (-DBL_MAX) แสดงว่ามีการคำนวณที่ถูกต้องเกิดขึ้น
+    if (res != -DBL_MAX)
+        cout << "Result: " << res;
+
+    return 0;
+}
